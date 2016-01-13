@@ -49,7 +49,7 @@ add_filter( 'woocommerce_email_classes', 'nod_add_email_class_to_wc' );
 function nod_is_new_customer( $user_id='', $email='' )	{
 	if( empty( $user_id ) && empty( $email ) )
 		return false;
-	
+
 	$orders = 0;
 
 	// Retrieve the WP user
@@ -61,7 +61,7 @@ function nod_is_new_customer( $user_id='', $email='' )	{
 	
 	if( empty( $field ) )
 		return false;
-	
+
 	$user = get_user_by( $field, $user_id );
 	
 	// If we did not retrieve a user by ID and we have an email, try that.
@@ -69,15 +69,15 @@ function nod_is_new_customer( $user_id='', $email='' )	{
 		$user = get_user_by( 'email', trim( $email ) );
 		
 	if( $user )
-		$orders += nod_get_order_count_by( 'id', $user->ID );
+		$orders = nod_get_order_count_by( 'id', $user->ID );
 		
 	if( $orders > 1 )
 		return false;
-	
+
 	// If an email is provided query orders by email	
 	if( !empty( $email ) )
-		$orders += nod_get_order_count_by( 'email', trim( $email ) );
-		
+		$orders = nod_get_order_count_by( 'email', trim( $email ) );
+
 	return $orders > 1 ? false : true;
 } // nod_is_new_customer
 
@@ -101,9 +101,8 @@ function nod_get_order_count_by( $field='id', $value )	{
 		case 'email':
 			$count = nod_get_order_count_by_email( $value );
 		break;
-		
-		return $count;
 	}
+	return $count;
 } // nod_get_order_count_by
 
 /**
@@ -141,12 +140,11 @@ function nod_get_order_count_by_id( $user_id )	{
 function nod_get_order_count_by_email( $email )	{
 	$customer_orders = get_posts( array(
         'numberposts' => -1,
-        'meta_key'    => 'Payer PayPal address',
+        'meta_key'    => '_billing_email',
         'meta_value'  => trim( $email ),
         'post_type'   => wc_get_order_types(),
         'post_status' => array( 'wc-completed', 'wc-pending' ),
     ) );
-	
 	return $customer_orders ? count( $customer_orders ) : 0;
 } // nod_get_order_count_by_email
 
