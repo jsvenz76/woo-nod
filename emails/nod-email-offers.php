@@ -93,6 +93,8 @@ if( !class_exists( 'NOD_Email_Offers' ) ) :
 				$headers = $email->get_headers();
 				$headers = apply_filters( 'nod_offer_headers', $headers, $nod['order_id'] );
 				
+				$email->heading = $email_args['heading'];
+				
 				do_action( 'nod_before_send_offer', $email_args, $nod, $discount );
 				
 				$is_sent = $email->send(
@@ -131,26 +133,31 @@ if( !class_exists( 'NOD_Email_Offers' ) ) :
 		 * @return	arr		Array of prepared email data
 		 */
 		public function prepare_email( $nod, $discount_id, $email )	{
+			$type         = WC_NOD()->settings->email_type;
 			$to_email     = $email->object->billing_email;
 			
 			$subject      = apply_filters( 'nod_offer_subject', wp_strip_all_tags( $email->get_subject() ), $nod['order_id'] );
 			$subject      = $email->format_string( $subject );
 			$subject      = nod_do_email_tags( $subject, $discount_id );
 			
-			$heading      = $email->get_heading();
+			$heading      = WC_NOD()->settings->email_heading;
+			$heading      = $email->format_string( $heading );
 			$heading      = nod_do_email_tags( $heading, $discount_id );
-			$email->heading = apply_filters( 'nod_offer_heading', $heading, $nod['order_id'] );
+			$heading	  = apply_filters( 'nod_offer_heading', $heading, $nod['order_id'] );
 					
 			$attachments  = apply_filters( 'nod_offer_attachments', $email->get_attachments(), $nod['order_id'] );
 			
 			$message      = $email->format_string( $email->get_content() );
 			$message      = nod_do_email_tags( $message, $discount_id );
+			
+			$content      = $email->get_email_header( $heading, $type ) . $message . $email->get_email_footer( $type );
 						
 			return array(
 				'to_email'      => $to_email,
 				'subject'       => $subject,
+				'heading'	   => $heading,
 				'attachments'   => $attachments,
-				'message'       => $message
+				'message'       => $content
 			);
 		} // prepare_email
 		

@@ -55,10 +55,114 @@ if( !class_exists( 'NOD_Email' ) ) :
 			// Define the locations of the templates that this email should use.
 			$this->template_html  = 'emails/customer-nod-offer.php';
 			$this->template_plain = 'emails/plain/customer-nod-offer.php';
-			
+						
 			parent::__construct();			
 		} // __construct
 		
+		/**
+		 * Retrieve the email header content.
+		 *
+		 * @since	0.0.1
+		 * @param	str		$email_heading		Required: The heading text string.
+		 * @param	str		$type				Required: The email type.
+		 * @return	str
+		 */
+		public function get_email_header( $email_heading, $type )	{
+			$html = '<!DOCTYPE html>' . "\r\n";
+			$html .= '<html dir="' . ( is_rtl() ? 'rtl' : 'ltr' ) . '">' . "\r\n";
+			$html .= '<head>' . "\r\n";
+			$html .= '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />' . "\r\n";
+			$html .= '<title>' . get_bloginfo( 'name', 'display' ) . '</title>' . "\r\n";
+			$html .= '</head>' . "\r\n";
+			$html .= '<body ' . ( is_rtl() ? 'rightmargin' : 'leftmargin' ) . '="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">' . "\r\n";
+			$html .= '<div id="wrapper" dir="' . ( is_rtl() ? 'rtl' : 'ltr' ) . '">' . "\r\n";
+			$html .= '<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">' . "\r\n";
+			$html .= '<tr>' . "\r\n";
+			$html .= '<td align="center" valign="top">' . "\r\n";
+			$html .= '<div id="template_header_image">' . "\r\n";
+
+			if ( $img = get_option( 'woocommerce_email_header_image' ) )
+				$html .= '<p style="margin-top:0;"><img src="' . esc_url( $img ) . '" alt="' . get_bloginfo( 'name', 'display' ) . '" /></p>' . "\r\n";
+
+			$html .= '</div>' . "\r\n";
+			$html .= '<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">' . "\r\n";
+			$html .= '<tr>' . "\r\n";
+			$html .= '<td align="center" valign="top">' . "\r\n";
+			$html .= '<!-- Header -->' . "\r\n";
+			$html .= '<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_header">' . "\r\n";
+			$html .= '<tr>' . "\r\n";
+			$html .= '<td id="header_wrapper">' . "\r\n";
+			$html .= '<h1>' . $email_heading . '</h1>' . "\r\n";
+			$html .= '</td>' . "\r\n";
+			$html .= '</tr>' . "\r\n";
+			$html .= '</table>' . "\r\n";
+			$html .= '<!-- End Header -->' . "\r\n";
+			$html .= '</td>' . "\r\n";
+			$html .= '</tr>' . "\r\n";
+			$html .= '<tr>' . "\r\n";
+			$html .= '<td align="center" valign="top">' . "\r\n";
+			$html .= '<!-- Body -->' . "\r\n";
+			$html .= '<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_body">' . "\r\n";
+			$html .= '<tr>' . "\r\n";
+			$html .= '<td valign="top" id="body_content">' . "\r\n";
+			$html .= '<!-- Content -->' . "\r\n";
+			$html .= '<table border="0" cellpadding="20" cellspacing="0" width="100%">' . "\r\n";
+			$html .= '<tr>' . "\r\n";
+			$html .= '<td valign="top">' . "\r\n";
+			$html .= '<div id="body_content_inner">' . "\r\n";
+						
+			return $type == 'html' ? $html : $email_heading;
+		}
+		
+		/**
+		 * Retrieve the email footer content.
+		 *
+		 * @since	0.0.1
+		 * @param	str		$type		Required: The email type.
+		 * @return	str
+		 */
+		public function get_email_footer( $type )	{
+			$html = '</div>' . "\r\n";
+			$html .= '</td>' . "\r\n";
+			$html .= '</tr>' . "\r\n";
+			$html .= '</table>' . "\r\n";
+			$html .= '<!-- End Content -->' . "\r\n";
+			$html .= '</td>' . "\r\n";
+			$html .= '</tr>' . "\r\n";
+			$html .= '</table>' . "\r\n";
+			$html .= '<!-- End Body -->' . "\r\n";
+			$html .= '</td>' . "\r\n";
+			$html .= '</tr>' . "\r\n";
+			$html .= '<tr>' . "\r\n";
+			$html .= '<td align="center" valign="top">' . "\r\n";
+			$html .= '<!-- Footer -->' . "\r\n";
+			$html .= '<table border="0" cellpadding="10" cellspacing="0" width="600" id="template_footer">' . "\r\n";
+			$html .= '<tr>' . "\r\n";
+			$html .= '<td valign="top">' . "\r\n";
+			$html .= '<table border="0" cellpadding="10" cellspacing="0" width="100%">' . "\r\n";
+			$html .= '<tr>' . "\r\n";
+			$html .= '<td colspan="2" valign="middle" id="credit">' . "\r\n";
+			$html .= wpautop( wp_kses_post( wptexturize( apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) ) ) ) );
+			$html .= '</td>' . "\r\n";
+			$html .= '</tr>' . "\r\n";
+			$html .= '</table>' . "\r\n";
+			$html .= '</td>' . "\r\n";
+			$html .= '</tr>' . "\r\n";
+			$html .= '</table>' . "\r\n";
+			$html .= '<!-- End Footer -->' . "\r\n";
+			$html .= '</td>' . "\r\n";
+			$html .= '</tr>' . "\r\n";
+			$html .= '</table>' . "\r\n";
+			$html .= '</td>' . "\r\n";
+			$html .= '</tr>' . "\r\n";
+			$html .= '</table>' . "\r\n";
+			$html .= '</div>' . "\r\n";
+			$html .= '</body>' . "\r\n";
+			$html .= '</html>' . "\r\n";
+			
+			return $type == 'html' ? $html : '';
+		} // get_email_footer
+				
 		/**
 		 * Retrieve the email content in HTML.
 		 *

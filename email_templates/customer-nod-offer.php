@@ -14,6 +14,8 @@ if ( ! defined( 'ABSPATH' ) )
 
 <?php do_action( 'woocommerce_email_header', $email_heading ); ?>
 
+<?php do_action( 'woocommerce_email_before_order_table', $order, $sent_to_admin, $plain_text ); ?>
+
 <p><?php printf(
 			__( 'Hi there. To say thanks for your recent purchase at {site_title}, we are offering you a discount of {offer_amount} off your next purchase.',
 			'woo-nod' ),
@@ -30,5 +32,7 @@ if ( ! defined( 'ABSPATH' ) )
 	?></p>
 
 <p><?php _e( 'Thank you', 'woo-nod' ); ?></p>
+
+<?php do_action( 'woocommerce_email_after_order_table', $order, $sent_to_admin, $plain_text ); ?>
 
 <?php do_action( 'woocommerce_email_footer' ); ?>
