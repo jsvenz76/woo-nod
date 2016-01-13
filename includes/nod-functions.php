@@ -75,7 +75,7 @@ function nod_is_new_customer( $user_id='', $email='' )	{
 		return false;
 	
 	// If an email is provided query orders by email	
-	if( !empty( is_email( $email ) ) )
+	if( !empty( $email ) )
 		$orders += nod_get_order_count_by( 'email', trim( $email ) );
 		
 	return $orders > 1 ? false : true;
