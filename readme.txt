@@ -27,6 +27,7 @@ Discount codes can be fully customised within settings to determine rate of disc
 * Specify the discount amount and whether it is applied as a percentage or a flat rate
 * Customise how long after the purchase is completed that the offer is sent to the customer
 * Specify how long the offer is valid for
+* Exclude for individual products
 * Customise the email subject, header and content
 * NOD shortcodes
 * Numerous hooks and filters for our developer friends

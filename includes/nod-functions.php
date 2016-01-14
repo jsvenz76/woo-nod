@@ -371,4 +371,27 @@ function nod_email_tag_offer_expiry( $discount_id )	{
 		
 	return !empty( $expires ) ? date_i18n( get_option( 'date_format' ), strtotime( $expires ) ) : '';
 } // nod_email_tag_offer_expiry
+
+/**
+ * Check if the current purchase is eligible for NOD offers.
+ *
+ * @param	int|arr		$items	Array of products included in the purchase.
+ * @return	bool		true if this purchase is NOD eligible, false if not.
+ *
+ * @since 0.0.1
+ * @return
+ */
+function wc_nod_is_eligible( $items )	{
+	if( !is_array( $items ) )
+		$items = array( $items );
+		
+	foreach( $items as $item )	{
+		$exclude = get_post_meta( $item['product_id'], '_wc_exclude_from_nod', true );
+		
+		if( $exclude == 'no' )
+			return true;
+	}
+	
+	return false;
+} // wc_nod_is_eligible
 ?>

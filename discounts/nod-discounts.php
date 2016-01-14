@@ -93,6 +93,10 @@ if( !class_exists( 'NOD_Discounts' ) ) :
 			
 			$items = $order->get_items();
 			
+			// If this purchase is not eligible for NOD offers, exit
+			if( !wc_nod_is_eligible( $items ) )
+				return;
+			
 			// If we do not apply offers to free downloads, check here
 			if( empty( WC_NOD()->settings->free ) && $order->get_total > '0' )
 				return;

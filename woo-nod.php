@@ -66,7 +66,6 @@ if ( ! class_exists( 'WC_NOD' ) ) :
 			$wc_dir = str_replace( 'woocommerce.php', '', WC_PLUGIN_FILE ) . 'templates/emails';
 				
 			foreach( $templates as $template )	{
-				error_log( $dir . $template . '<br />' . $wc_dir . $template, 0 );
 				if( !file_exists( $wc_dir . $template ) )
 					copy( $dir . $template, $wc_dir . $template );
 			}
@@ -155,6 +154,7 @@ if ( ! class_exists( 'WC_NOD' ) ) :
 		private function includes()	{
 			require_once( NOD_PLUGIN_DIR . '/includes/nod-functions.php' );
 			require_once( NOD_PLUGIN_DIR . '/includes/nod-settings.php' );
+			require_once( NOD_PLUGIN_DIR . '/includes/metabox.php' );
 			require_once( NOD_PLUGIN_DIR . '/discounts/nod-discounts.php' );
 			require_once( NOD_PLUGIN_DIR . '/emails/nod-email-offers.php' );
 		} // includes
