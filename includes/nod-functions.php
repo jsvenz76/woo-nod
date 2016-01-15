@@ -402,32 +402,22 @@ function wc_nod_product_is_eligible( $items )	{
  */
 function wc_nod_purchase_qualifies( $purchase_count )	{
 	// First offer
-	if( $purchase_count < WC_NOD()->settings->first )	{
-		error_log( 'Does not qualify for first offer', 0 );
+	if( $purchase_count < WC_NOD()->settings->first )
 		return false;
-	}
 	
-	if( $purchase_count == WC_NOD()->settings->first )	{
-		error_log( 'Qualify for first offer', 0 );
+	if( $purchase_count == WC_NOD()->settings->first )
 		return true;
-	}
 	
 	// Second offer	
-	if( empty( WC_NOD()->settings->repeat ) )	{
-		error_log( 'No second offer', 0 );
+	if( empty( WC_NOD()->settings->repeat ) )
 		return false;
-	}
 		
-	if( $purchase_count == WC_NOD()->settings->repeat )	{
-		error_log( 'Qualify for repeat offer', 0 );
+	if( $purchase_count == WC_NOD()->settings->repeat )
 		return true;
-	}
 		
 	// Repeat offers
-	if( $purchase_count % WC_NOD()->settings->repeat == 0 && get_option( 'nod_continue', false ) )	{
-		error_log( 'Qualify for continued offer', 0 );
+	if( $purchase_count % WC_NOD()->settings->repeat == 0 && get_option( 'nod_continue', false ) )
 		return true;
-	}
 
 	return false;
 } // wc_nod_purchase_qualifies
