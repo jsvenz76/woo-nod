@@ -94,7 +94,7 @@ if( !class_exists( 'NOD_Discounts' ) ) :
 			$items = $order->get_items();
 			
 			// If this purchase is not eligible for NOD offers, exit
-			if( !wc_nod_is_eligible( $items ) )
+			if( !wc_nod_product_is_eligible( $items ) )
 				return;
 			
 			// If we do not apply offers to free downloads, check here
@@ -106,14 +106,17 @@ if( !class_exists( 'NOD_Discounts' ) ) :
 			if( !empty( $min ) && $min < $order->get_total )
 				return;
 							
-			// Process for new customers only.
+			// Check if the customer is eligible for a NOD offer.
 			$customer_id = $order->customer_user;
 			
-			$customer = '';
+			$customer       = '';
 			$customer_email = get_post_meta( $order_id, '_billing_email', true );
-			$customer = get_user_by( 'id', $customer_id );
+			$customer       = get_user_by( 'id', $customer_id );
+			
+			$purchase_count = 0;
+			$purchase_count = wc_nod_get_customer_purchase_count( $customer_id, $customer_email );
 						
-			if( !nod_is_new_customer( $customer_id, $customer_email ) )
+			if( !wc_nod_purchase_qualifies( $purchase_count ) )
 				return;
 			
 			// Before adding the new NOD

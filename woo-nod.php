@@ -51,7 +51,7 @@ if ( ! class_exists( 'WC_NOD' ) ) :
 		public static function activate()	{
 			// If this is the first time activated, call install procesures
 			if( !get_option( 'nod_version' ) )
-				include( NOD_PLUGIN_DIR . '/procedures/nod-install.php' );
+				include( WC_NOD_PLUGIN_DIR. '/procedures/nod-install.php' );
 				
 			// Register our scheduled event hooks
 			if( !wp_next_scheduled( 'woo_nod_schedule_next_order_discount' ) )
@@ -62,7 +62,7 @@ if ( ! class_exists( 'WC_NOD' ) ) :
 				"/customer-nod-offer.php",
 				"/plain/customer-nod-offer.php"
 			);
-			$dir = NOD_PLUGIN_DIR . '/email_templates';
+			$dir = WC_NOD_PLUGIN_DIR. '/email_templates';
 			$wc_dir = str_replace( 'woocommerce.php', '', WC_PLUGIN_FILE ) . 'templates/emails';
 				
 			foreach( $templates as $template )	{
@@ -152,11 +152,11 @@ if ( ! class_exists( 'WC_NOD' ) ) :
 		 *
 		 */
 		private function includes()	{
-			require_once( NOD_PLUGIN_DIR . '/includes/nod-functions.php' );
-			require_once( NOD_PLUGIN_DIR . '/includes/nod-settings.php' );
-			require_once( NOD_PLUGIN_DIR . '/includes/metabox.php' );
-			require_once( NOD_PLUGIN_DIR . '/discounts/nod-discounts.php' );
-			require_once( NOD_PLUGIN_DIR . '/emails/nod-email-offers.php' );
+			require_once( WC_NOD_PLUGIN_DIR. '/includes/nod-functions.php' );
+			require_once( WC_NOD_PLUGIN_DIR. '/includes/nod-settings.php' );
+			require_once( WC_NOD_PLUGIN_DIR. '/includes/metabox.php' );
+			require_once( WC_NOD_PLUGIN_DIR. '/discounts/nod-discounts.php' );
+			require_once( WC_NOD_PLUGIN_DIR. '/emails/nod-email-offers.php' );
 		} // includes
 		
 		/**
@@ -196,8 +196,8 @@ error_reporting(E_ALL|E_STRICT);
 
 define( 'WC_NOD_VER_KEY', 'woo_nod_version');
 define( 'WC_NOD_VER', '0.0.1' );
-define( 'NOD_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
-define( 'NOD_PLUGIN_URL', untrailingslashit( plugins_url( '', __FILE__ ) ) );
+define( 'WC_NOD_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
+define( 'WC_NOD_PLUGIN_URL', untrailingslashit( plugins_url( '', __FILE__ ) ) );
 
 register_activation_hook( __FILE__, array( 'WC_NOD', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'WC_NOD', 'deactivate' ) );

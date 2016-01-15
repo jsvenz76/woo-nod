@@ -94,6 +94,33 @@ function nod_registered_settings()	{
 				'desc'		=> __( 'Check this box to enable the Next Order Discount feature.', 'woo-nod' ),
 				'id'		=> 'nod_enable'
 			),
+			'nod_first'	=> array(
+				'id'   => 'nod_first',
+				'name' => __( 'First NOD after', 'edd-nod' ),
+				'desc' => __( 'Enter the number of orders a customer must complete before qualifying for their first NOD.', 'edd-nod' ),
+				'type' => 'number',
+				'class' => 'small-text',
+				'default'  => WC_NOD()->settings->first
+			),
+			'nod_repeat'	=> array(
+				'id'   => 'nod_repeat',
+				'name' => __( 'Repeat NOD offer after every', 'edd-nod' ),
+				'desc' => __( 'Enter the number of orders the customer needs to complete to qualify for their second NOD. Enter 0 to deactivate.', 'edd-nod' ),
+				'type' => 'number',
+				'class' => 'small-text',
+				'default'  => WC_NOD()->settings->repeat
+			),
+			'nod_continue'	=> array(
+				'id'   => 'nod_continue',
+				'name' => __( 'Continue with NOD offers?', 'edd-nod' ),
+				'desc' => sprintf(
+					__( 
+					'Check this box to send NOD offers after customer completes every %sRepeat NOD offer after every%s orders.', 'edd-nod' ),
+					'<code>',
+					'</code>'
+				),
+				'type' => 'checkbox'
+			),
 			'nod_free'			=> array(
 				'id'		=> 'nod_free',
 				'name'		=> __( 'Apply to Free Purchases?', 'woo-nod' ),
@@ -192,6 +219,9 @@ function nod_registered_settings()	{
 function nod_settings()	{	
 	$settings						= new stdClass();
 	$settings->enable				= get_option( 'nod_enable', false );
+	$settings->first    			= get_option( 'nod_first', '1' );
+	$settings->repeat   			= get_option( 'nod_repeat', false );
+	$settings->free					= get_option( 'nod_free', false );
 	$settings->free					= get_option( 'nod_free', false );
 	$settings->min_spend            = get_option( 'nod_min_spend', '0' );
 	$settings->prefix				= get_option( 'nod_prefix', '' );

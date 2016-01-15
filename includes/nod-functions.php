@@ -23,7 +23,7 @@ if( !defined( 'ABSPATH' ) )
  */
 function nod_add_email_class_to_wc( $email_classes )	{
 	// Include the NOD Email custom email class.
-    require( NOD_PLUGIN_DIR . '/emails/nod-email.php' );
+    require( WC_NOD_PLUGIN_DIR. '/emails/nod-email.php' );
 	
 	// Add the NOD email class to the list of email classes that WooCommerce loads
     $email_classes['NOD_Email'] = new NOD_Email();
@@ -33,9 +33,8 @@ function nod_add_email_class_to_wc( $email_classes )	{
 add_filter( 'woocommerce_email_classes', 'nod_add_email_class_to_wc' );
 
 /**
- * Count all customer orders through WC.
+ * Return the count of all customer orders through WC.
  *
- * Returns an array of WP_Post objects that the customer has ordered.
  * If no $user_id is provided, or no orders exist for the given user and an
  * email address is provided, we can query the PayPal address to query previous orders
  * to cover guest checkout.
@@ -43,10 +42,10 @@ add_filter( 'woocommerce_email_classes', 'nod_add_email_class_to_wc' );
  * @param int $user_id		Optional: The user ID to query.
  * @param str $email		Optional: The user email address.
  * 
- * @since 0.0.1
- * @return bool		True if the customer has not ordered before, otherwise false.
+ * @since	0.0.1
+ * @return	int		Total number of orders from this customer.
  */
-function nod_is_new_customer( $user_id='', $email='' )	{
+function wc_nod_get_customer_purchase_count( $user_id='', $email='' )	{
 	if( empty( $user_id ) && empty( $email ) )
 		return false;
 
@@ -60,7 +59,7 @@ function nod_is_new_customer( $user_id='', $email='' )	{
 		$field = 'email';
 	
 	if( empty( $field ) )
-		return false;
+		return $orders;
 
 	$user = get_user_by( $field, $user_id );
 	
@@ -69,17 +68,14 @@ function nod_is_new_customer( $user_id='', $email='' )	{
 		$user = get_user_by( 'email', trim( $email ) );
 		
 	if( $user )
-		$orders = nod_get_order_count_by( 'id', $user->ID );
+		$orders += nod_get_order_count_by( 'id', $user->ID );
 		
-	if( $orders > 1 )
-		return false;
-
 	// If an email is provided query orders by email	
 	if( !empty( $email ) )
-		$orders = nod_get_order_count_by( 'email', trim( $email ) );
+		$orders += nod_get_order_count_by( 'email', trim( $email ) );
 
-	return $orders > 1 ? false : true;
-} // nod_is_new_customer
+	return $orders;
+} // wc_nod_get_customer_purchase_count
 
 /**
  * Count all customer orders for the customer by the given field.
@@ -381,7 +377,7 @@ function nod_email_tag_offer_expiry( $discount_id )	{
  * @since 0.0.1
  * @return
  */
-function wc_nod_is_eligible( $items )	{
+function wc_nod_product_is_eligible( $items )	{
 	if( !is_array( $items ) )
 		$items = array( $items );
 		
@@ -393,5 +389,46 @@ function wc_nod_is_eligible( $items )	{
 	}
 	
 	return false;
-} // wc_nod_is_eligible
+} // wc_nod_product_is_eligible
+
+/**
+ * Check if the users purchase qualifies for a NOD offer.
+ *
+ * @param	int			$purchase_count		Purchase count of customer.
+ * @return	bool		true if this the customer is eligible, false if not.
+ *
+ * @since 0.0.4
+ * @return
+ */
+function wc_nod_purchase_qualifies( $purchase_count )	{
+	// First offer
+	if( $purchase_count < WC_NOD()->settings->first )	{
+		error_log( 'Does not qualify for first offer', 0 );
+		return false;
+	}
+	
+	if( $purchase_count == WC_NOD()->settings->first )	{
+		error_log( 'Qualify for first offer', 0 );
+		return true;
+	}
+	
+	// Second offer	
+	if( empty( WC_NOD()->settings->repeat ) )	{
+		error_log( 'No second offer', 0 );
+		return false;
+	}
+		
+	if( $purchase_count == WC_NOD()->settings->repeat )	{
+		error_log( 'Qualify for repeat offer', 0 );
+		return true;
+	}
+		
+	// Repeat offers
+	if( $purchase_count % WC_NOD()->settings->repeat == 0 && get_option( 'nod_continue', false ) )	{
+		error_log( 'Qualify for continued offer', 0 );
+		return true;
+	}
+
+	return false;
+} // wc_nod_purchase_qualifies
 ?>
