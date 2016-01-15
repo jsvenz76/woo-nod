@@ -112,13 +112,15 @@ function nod_get_order_count_by( $field='id', $value )	{
  * @return int	The total number of orders for the customer.
  */
 function nod_get_order_count_by_id( $user_id )	{
-	$customer_orders = get_posts( array(
-        'numberposts' => -1,
-        'meta_key'    => '_customer_user',
-        'meta_value'  => $user_id,
-        'post_type'   => wc_get_order_types(),
-        'post_status' => array( 'wc-completed', 'wc-pending' ),
-    ) );
+	$customer_orders = get_posts(
+		array(
+			'numberposts' => -1,
+			'meta_key'    => '_customer_user',
+			'meta_value'  => $user_id,
+			'post_type'   => wc_get_order_types(),
+			'post_status' => array( 'wc-completed', 'wc-pending' )
+    	)
+	);
 	
 	return $customer_orders ? count( $customer_orders ) : 0;
 } // nod_get_order_count_by_id
@@ -128,19 +130,37 @@ function nod_get_order_count_by_id( $user_id )	{
  *
  * Returns a count of customer orders.
  *
+ * We need to confirm that the _customer_user meta key is set to 0.
+ * Otherwise we may be counting duplicates for registered users
+ *
  * @param	int		$email		Required: The email address we are querying.
  * 
  * @since 0.0.1
  * @return int	The total number of orders for the customer.
  */
 function nod_get_order_count_by_email( $email )	{
-	$customer_orders = get_posts( array(
-        'numberposts' => -1,
-        'meta_key'    => '_billing_email',
-        'meta_value'  => trim( $email ),
-        'post_type'   => wc_get_order_types(),
-        'post_status' => array( 'wc-completed', 'wc-pending' ),
-    ) );
+	$customer_orders = get_posts(
+		array(
+			'numberposts'	=> -1,
+			'post_type'		=> wc_get_order_types(),
+			'post_status'	=> array( 'wc-completed', 'wc-pending' ),
+			'meta_query'	=> array(
+				'relation'	=> 'AND',
+				array(
+					'key'		=> '_billing_email',
+					'value'		=> trim( $email ),
+					'compare'	=> '='
+				),
+				array(
+					'key'       => '_customer_user',
+					'value'     => '0',
+					'compare'   => '=',
+					'type'      => 'NUMERIC'
+				)
+			)
+		)
+	);
+	error_log( print_r( wc_get_order_types() ), 0 );
 	return $customer_orders ? count( $customer_orders ) : 0;
 } // nod_get_order_count_by_email
 
