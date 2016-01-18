@@ -102,14 +102,6 @@ function nod_registered_settings()	{
 				'class' => 'small-text',
 				'default'  => WC_NOD()->settings->first
 			),
-			'nod_repeat'	=> array(
-				'id'   => 'nod_repeat',
-				'name' => __( 'Repeat NOD offer after every', 'edd-nod' ),
-				'desc' => __( 'Enter the number of orders the customer needs to complete to qualify for their second NOD. Enter 0 to deactivate.', 'edd-nod' ),
-				'type' => 'number',
-				'class' => 'small-text',
-				'default'  => WC_NOD()->settings->repeat
-			),
 			'nod_continue'	=> array(
 				'id'   => 'nod_continue',
 				'name' => __( 'Continue with NOD offers?', 'edd-nod' ),
@@ -120,6 +112,14 @@ function nod_registered_settings()	{
 					'</code>'
 				),
 				'type' => 'checkbox'
+			),
+			'nod_repeat'	=> array(
+				'id'   => 'nod_repeat',
+				'name' => __( 'Repeat NOD offer after every', 'edd-nod' ),
+				'desc' => __( 'Enter the number of orders the customer needs to complete to qualify for their second NOD. Enter 0 to deactivate.', 'edd-nod' ),
+				'type' => 'number',
+				'class' => 'small-text',
+				'default'  => WC_NOD()->settings->repeat
 			),
 			'nod_free'			=> array(
 				'id'		=> 'nod_free',
