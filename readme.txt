@@ -2,8 +2,8 @@
 Contributors: mikeyhoward1977
 Tags: WooCommerce, Coupon Code, Discount Code
 Requires at least: 4.0
-Tested up to: 4.4.1
-Stable tag: 0.0.1
+Tested up to: 4.4.2
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,23 +15,23 @@ A customer ordering something from your shop for the first time is great. But ho
 
 And how do you keep them coming back?
 
-Next Order Discount (NOD) is an extension to the Easy Digital Downloads (EDD) WordPress plugin that enables shop owners to attract further purchases from their customers automatically and without any need for manual intervention.
+Next Order Discount (NOD) is an extension to the WooCommerce WordPress plugin that enables shop owners to attract further purchases from their customers automatically and without any need for manual intervention.
 
 Following an initial order, NOD can be configured to schedule a customised follow up email to the customer tempting them to complete further purchases by offering a shop discount.
 
-The discount codes are automatically created within EDD and can be included in the email content with the use of shortcodes.
+The coupons are automatically created within WooCommerce and can be included in the email content with the use of shortcodes.
 
 A further NOD can be offerd after the customer completes additional purchases and furthermore, NOD's can be offered after every *x* orders from your shop.
 
 **Keep your customers happy and they'll keep coming back**
 
-Discount codes can be fully customised within settings to determine rate of discount, expiry date, plus more...
+Coupons can be fully customised within settings to determine rate of discount, expiry date, plus more...
 
-* Offer discounts after a defined number of purchases and continue to offer further discounts after every *x* number of orders
+* Offer coupons after a defined number of purchases and continue to offer further coupons after every *x* number of orders
 * Choose a minimum spend policy
 * Select whether or not to apply to free purchases
 * Applies to first time orders only. Including guest checkouts
-* Specify the discount amount and whether it is applied as a percentage or a flat rate
+* Specify the coupon amount and whether it is applied as a percentage or a flat rate
 * Customise how long after the purchase is completed that the offer is sent to the customer
 * Specify how long the offer is valid for
 * Exclude for individual products
@@ -58,7 +58,7 @@ Once you have downloaded the plugin zip file, follow these simple instructions t
 == Screenshots ==
 
 == Changelog ==
-= 0.0.1 =
-**Released 15th January, 2016*
+= 1.0 =
+**Released 11th February, 2016**
 
 * Initial release!
