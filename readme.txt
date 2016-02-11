@@ -21,7 +21,7 @@ Following an initial order, NOD can be configured to schedule a customised follo
 
 The coupons are automatically created within WooCommerce and can be included in the email content with the use of shortcodes.
 
-A further NOD can be offerd after the customer completes additional purchases and furthermore, NOD's can be offered after every *x* orders from your shop.
+A further NOD can be offered after the customer completes additional purchases and furthermore, NOD's can be offered after every *x* orders from your shop.
 
 **Keep your customers happy and they'll keep coming back**
 
