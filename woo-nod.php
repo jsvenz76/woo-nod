@@ -192,8 +192,6 @@ function WC_NOD_Load()	{
 
 add_action( 'plugins_loaded', 'WC_NOD_Load' );
 
-error_reporting(E_ALL|E_STRICT);
-
 define( 'WC_NOD_VER_KEY', 'woo_nod_version');
 define( 'WC_NOD_VER', '1.0.1' );
 define( 'WC_NOD_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
