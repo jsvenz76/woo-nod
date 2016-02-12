@@ -38,12 +38,12 @@ if( !class_exists( 'NOD_Email' ) ) :
 			$this->id = 'wc_nod_offer';
 		 
 			// Set the title WooCommerce Email settings.
-			$this->title = __( 'Next Order Discount', 'woo-nod' );
+			$this->title = __( 'Next Order Discount', 'wc-next-order-discount' );
 		 
 			// Set the description in WooCommerce email settings.
 			$this->description = sprintf(
 				__( 'Next Order Discount emails are sent following a customer order in accordance with your %sNOD Settings%s.',
-				'woo-nod' ),
+				'wc-next-order-discount' ),
 				'<a href="' . admin_url( 'admin.php?page=wc-settings&tab=nod_settings_tab' ) . '">',
 				'</a>'
 			);
@@ -204,45 +204,45 @@ if( !class_exists( 'NOD_Email' ) ) :
 			$this->form_fields = array(
 				'subject'            => array(
 					'id'          => 'subject',
-					'title'       => __( 'Offer Email Subject', 'woo-nod' ),
-					'description' => __( 'Enter the subject line for the NOD email.', 'woo-nod' ),
+					'title'       => __( 'Offer Email Subject', 'wc-next-order-discount' ),
+					'description' => __( 'Enter the subject line for the NOD email.', 'wc-next-order-discount' ),
 					'type'		  => 'text',
 					'placeholder' => '',
 					'default'     => WC_NOD()->settings->email_subject
 				),
 				'heading'           => array(
 					'id'          => 'heading',
-					'title'       => __( 'Offer Email Heading', 'woo-nod' ),
-					'description' => __( 'Enter the heading for the NOD email.', 'woo-nod' ),
+					'title'       => __( 'Offer Email Heading', 'wc-next-order-discount' ),
+					'description' => __( 'Enter the heading for the NOD email.', 'wc-next-order-discount' ),
 					'type'        => 'text',
 					'placeholder' => '',
 					'default'     => WC_NOD()->settings->email_heading
 				),
 				'email_type'        => array(
 					'id'          => 'email_type',
-					'title'       => __( 'Email type', 'woo-nod' ),
+					'title'       => __( 'Email type', 'wc-next-order-discount' ),
 					'type'		=> 'select',
-					'description' => __( 'Choose which format of email to send.', 'woo-nod' ),
+					'description' => __( 'Choose which format of email to send.', 'wc-next-order-discount' ),
 					'default'	 => WC_NOD()->settings->email_type,
 					'class'		=> 'wc-enhanced-select',
 					'options'	  => array(
-						'plain'     => __( 'Plain text', 'woo-nod' ),
-						'html'      => __( 'HTML', 'woo-nod' ),
-						'multipart' => __( 'Multipart', 'woo-nod' )
+						'plain'     => __( 'Plain text', 'wc-next-order-discount' ),
+						'html'      => __( 'HTML', 'wc-next-order-discount' ),
+						'multipart' => __( 'Multipart', 'wc-next-order-discount' )
 					)
 				),
 				'admin_emails' => array(
 					'id'          => 'admin_emails',
-					'title'       => __( 'NOD Notification Emails', 'woo-nod' ),
-					'description' => __( 'Enter the email address(es) that should receive a notification anytime a NOD offer is made, one per line.', 'woo-nod' ),
+					'title'       => __( 'NOD Notification Emails', 'wc-next-order-discount' ),
+					'description' => __( 'Enter the email address(es) that should receive a notification anytime a NOD offer is made, one per line.', 'wc-next-order-discount' ),
 					'type'		=> 'textarea',
 					'css'		=> 'width:200px; height: 75px;',
 					'default'	=> WC_NOD()->settings->admin_emails
 				),
 				'no_admin_emails' => array(
 					'id'          => 'no_admin_emails',
-					'title'       => __( 'Disable Admin Notifications', 'woo-nod' ),
-					'description' => __( 'Check this box if you do not want NOD offers to be blind copied to admins. Will overide NOD Notification Emails.', 'woo-nod' ),
+					'title'       => __( 'Disable Admin Notifications', 'wc-next-order-discount' ),
+					'description' => __( 'Check this box if you do not want NOD offers to be blind copied to admins. Will overide NOD Notification Emails.', 'wc-next-order-discount' ),
 					'type'		=> 'checkbox',
 					'default'	=> WC_NOD()->settings->disable_admin
 				),

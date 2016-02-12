@@ -22,7 +22,7 @@ if( !defined( 'ABSPATH' ) )
  * @return      arr		$tabs		Filtered WooCommerce tabs
  */
 function nod_settings_tabs( $tabs )	{
-	$tabs['nod_settings_tab'] = __( 'Next Order Discount', 'woo-nod' );
+	$tabs['nod_settings_tab'] = __( 'Next Order Discount', 'wc-next-order-discount' );
 
 	return $tabs;
 } // nod_settings_tabs
@@ -63,8 +63,8 @@ add_action( 'woocommerce_update_options_nod_settings_tab', 'nod_update_settings'
  * @return      arr		$sections		Filtered WooCommerce sections
  */
 function nod_settings_sections( $sections )	{
-	$sections['nod_general'] = __( 'NOD General Settings', 'woo-nod' );
-	$sections['nod_email'] = __( 'NOD Email Settings', 'woo-nod' );
+	$sections['nod_general'] = __( 'NOD General Settings', 'wc-next-order-discount' );
+	$sections['nod_email'] = __( 'NOD Email Settings', 'wc-next-order-discount' );
 
 	return $sections;
 } // nod_settings_sections
@@ -83,15 +83,15 @@ function nod_registered_settings()	{
 		'woo_nod_settings',
 		array(
 			'nod_settings_title' => array(
-				'name'     => __( 'General NOD Settings', 'woo-nod' ),
+				'name'     => __( 'General NOD Settings', 'wc-next-order-discount' ),
 				'type'     => 'title',
 				'desc'     => '',
 				'id'       => 'nod_settings_title'
 			),
 			'nod_enable'		=> array(
-				'name'		=> __( 'Enable Next Order Discount?', 'woo-nod' ),
+				'name'		=> __( 'Enable Next Order Discount?', 'wc-next-order-discount' ),
 				'type'		=> 'checkbox',
-				'desc'		=> __( 'Check this box to enable the Next Order Discount feature.', 'woo-nod' ),
+				'desc'		=> __( 'Check this box to enable the Next Order Discount feature.', 'wc-next-order-discount' ),
 				'id'		=> 'nod_enable'
 			),
 			'nod_first'	=> array(
@@ -123,82 +123,81 @@ function nod_registered_settings()	{
 			),
 			'nod_free'			=> array(
 				'id'		=> 'nod_free',
-				'name'		=> __( 'Apply to Free Purchases?', 'woo-nod' ),
-				'desc'		=> __( 'Check this box to enable the Next Order Discount following free purchases.', 'woo-nod' ),
+				'name'		=> __( 'Apply to Free Purchases?', 'wc-next-order-discount' ),
+				'desc'		=> __( 'Check this box to enable the Next Order Discount following free purchases.', 'wc-next-order-discount' ),
 				'type'		=> 'checkbox'
 			),
 			'nod_min_spend' 	=> array(
 				'id'		=> 'nod_min_spend',
-				'name'		=> __( 'Minimum Spend', 'woo-nod' ),
-				'desc'		=> __( 'Enter the minimum spend required for Next Order Discount (i.e. 10), or leave empty.', 'woo-nod' ),
+				'name'		=> __( 'Minimum Spend', 'wc-next-order-discount' ),
+				'desc'		=> __( 'Enter the minimum spend required for Next Order Discount (i.e. 10), or leave empty.', 'wc-next-order-discount' ),
 				'type'		=> 'number',
 				'class'		=> 'small-text',
 				'default' 	=> WC_NOD()->settings->min_spend
 			),
 			'nod_prefix' 		=> array(
 				'id'		=> 'nod_prefix',
-				'name'		=> __( 'Discount Code Prefix', 'woo-nod' ),
-				'desc'		=> __( 'Enter a prefix for the discount code, or leave empty.', 'woo-nod' ),
+				'name'		=> __( 'Discount Code Prefix', 'wc-next-order-discount' ),
+				'desc'		=> __( 'Enter a prefix for the discount code, or leave empty.', 'wc-next-order-discount' ),
 				'type'		=> 'text',
 				'default'	=> WC_NOD()->settings->prefix
 			),
 			'nod_rate'	  => array(
 				'id'		=> 'nod_rate',
-				'name'		=> __( 'Discount Amount', 'woo-nod' ),
-				'desc'		=> __( 'Enter the discount amount.', 'woo-nod' ),
+				'name'		=> __( 'Discount Amount', 'wc-next-order-discount' ),
+				'desc'		=> __( 'Enter the discount amount.', 'wc-next-order-discount' ),
 				'type'		=> 'number',
 				'class'		=> 'small-text',
 				'default'	=> WC_NOD()->settings->rate
 			),
 			'nod_type'	  => array(
 				'id'		=> 'nod_type',
-				'name'		=> __( 'Discount Type', 'woo-nod' ),
-				'desc'		=> __( 'The kind of discount to apply for Next Order Discounts.', 'woo-nod' ),
+				'name'		=> __( 'Discount Type', 'wc-next-order-discount' ),
+				'desc'		=> __( 'The kind of discount to apply for Next Order Discounts.', 'wc-next-order-discount' ),
 				'type'		=> 'select',
 				'class'		=> 'wc-enhanced-select',
 				'options' 	=> array(
-					'fixed_cart'		=> __( 'Cart Discount', 'woo-nod' ),
-					'percent'			=> __( 'Cart % Discount', 'woo-nod' ),
+					'fixed_cart'		=> __( 'Cart Discount', 'wc-next-order-discount' ),
+					'percent'			=> __( 'Cart % Discount', 'wc-next-order-discount' ),
 				),
 				'default'	=> WC_NOD()->settings->type
 			),
 			'nod_send_after'	  => array(
 				'id'   		=> 'nod_send_after',
-				'name' 		=> __( 'Send Offer After', 'woo-nod' ),
-				'desc' 		=> __( 'Select length of time after purchase to wait before sending the offer.', 'woo-nod' ),
+				'name' 		=> __( 'Send Offer After', 'wc-next-order-discount' ),
+				'desc' 		=> __( 'Select length of time after purchase to wait before sending the offer.', 'wc-next-order-discount' ),
 				'type' 		=> 'select',
 				'class'		=> 'wc-enhanced-select',
 				'options'	=> array(
-					'2 minutes'	=> __( '2 Minutes', 'woo-nod' ),
-					'12 hours'	=> __( '12 Hours', 'woo-nod' ),
-					'1 day'		=> __( '1 Day', 'woo-nod' ),
-					'36 hours'	=> __( '36 Hours', 'woo-nod' ),
-					'2 days'	=> __( '2 Days', 'woo-nod' ),
-					'3 days'	=> __( '3 Days', 'woo-nod' ),
-					'4 days'	=> __( '4 Days', 'woo-nod' ),
-					'5 days'	=> __( '5 Days', 'woo-nod' ),
-					'6 days'	=> __( '6 Days', 'woo-nod' ),
-					'1 week'	=> __( '1 Week', 'woo-nod' )
+					'12 hours'	=> __( '12 Hours', 'wc-next-order-discount' ),
+					'1 day'		=> __( '1 Day', 'wc-next-order-discount' ),
+					'36 hours'	=> __( '36 Hours', 'wc-next-order-discount' ),
+					'2 days'	=> __( '2 Days', 'wc-next-order-discount' ),
+					'3 days'	=> __( '3 Days', 'wc-next-order-discount' ),
+					'4 days'	=> __( '4 Days', 'wc-next-order-discount' ),
+					'5 days'	=> __( '5 Days', 'wc-next-order-discount' ),
+					'6 days'	=> __( '6 Days', 'wc-next-order-discount' ),
+					'1 week'	=> __( '1 Week', 'wc-next-order-discount' )
 				),
 				'default'  	=> WC_NOD()->settings->send_after,
 			),
 			'nod_expires'	  => array(
 				'id'   		=> 'nod_expires',
-				'name' 		=> __( 'Offer Expires after', 'woo-nod' ),
-				'desc' 		=> __( 'Select time period offer is valid for.', 'woo-nod' ),
+				'name' 		=> __( 'Offer Expires after', 'wc-next-order-discount' ),
+				'desc' 		=> __( 'Select time period offer is valid for.', 'wc-next-order-discount' ),
 				'type' 		=> 'select',
 				'class'		=> 'wc-enhanced-select',
 				'options'	=> array(
-					'1 day'		=> __( '1 Day', 'woo-nod' ),
-					'2 days'	=> __( '2 Days', 'woo-nod' ),
-					'3 days'	=> __( '3 Days', 'woo-nod' ),
-					'4 days'	=> __( '4 Days', 'woo-nod' ),
-					'5 days'	=> __( '5 Days', 'woo-nod' ),
-					'6 days'	=> __( '6 Days', 'woo-nod' ),
-					'1 week'	=> __( '1 Week', 'woo-nod' ),
-					'10 days'	=> __( '10 Days', 'woo-nod' ),
-					'2 weeks'	=> __( '2 Weeks', 'woo-nod' ),
-					'1 month'	=> __( '1 Month', 'woo-nod' )
+					'1 day'		=> __( '1 Day', 'wc-next-order-discount' ),
+					'2 days'	=> __( '2 Days', 'wc-next-order-discount' ),
+					'3 days'	=> __( '3 Days', 'wc-next-order-discount' ),
+					'4 days'	=> __( '4 Days', 'wc-next-order-discount' ),
+					'5 days'	=> __( '5 Days', 'wc-next-order-discount' ),
+					'6 days'	=> __( '6 Days', 'wc-next-order-discount' ),
+					'1 week'	=> __( '1 Week', 'wc-next-order-discount' ),
+					'10 days'	=> __( '10 Days', 'wc-next-order-discount' ),
+					'2 weeks'	=> __( '2 Weeks', 'wc-next-order-discount' ),
+					'1 month'	=> __( '1 Month', 'wc-next-order-discount' )
 				),
 				'default'  	=> WC_NOD()->settings->expires,
 			),
@@ -230,10 +229,10 @@ function nod_settings()	{
 	$settings->send_after			= get_option( 'nod_send_after', '12 hours' );
 	$settings->expires				= get_option( 'nod_expires', '1 week' );
 	$settings->email_subject		= get_option( 'woocommerce_wc_nod_offer_subject', 
-		sprintf( __( 'Discount Offer from %s', 'woo-nod' ), '{site_title}' ) );
+		sprintf( __( 'Discount Offer from %s', 'wc-next-order-discount' ), '{site_title}' ) );
 		
 	$settings->email_heading		= get_option( 'woocommerce_wc_nod_offer_heading', 
-		sprintf( __( '%s Discount on Your Next Purchase - Act Now!', 'woo-nod' ), '{offer_amount}' ) );
+		sprintf( __( '%s Discount on Your Next Purchase - Act Now!', 'wc-next-order-discount' ), '{offer_amount}' ) );
 		
 	$settings->email_type			= get_option( 'woocommerce_wc_nod_offer_email_type', 'html' );
 	$settings->admin_emails			= get_option( 'woocommerce_wc_nod_offer_admin_emails', get_bloginfo( 'admin_email' ) );

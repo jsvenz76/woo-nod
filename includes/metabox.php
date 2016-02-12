@@ -31,7 +31,7 @@ function woo_nod_render_exclude_nod_row() {
 	woocommerce_wp_checkbox(
 		array(
 			'id'          => '_wc_exclude_from_nod',
-			'label'       => __( 'Exclude NOD offers?', 'woo-nod' ),
+			'label'       => __( 'Exclude NOD offers?', 'wc-next-order-discount' ),
 			'description' => __( 'Exclude this Product from NOD offers?', 'woocommerce' )
 		)
 	);

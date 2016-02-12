@@ -18,20 +18,20 @@ if ( ! defined( 'ABSPATH' ) )
 
 <p><?php printf(
 			__( 'Hi there. To say thanks for your recent purchase at {site_title}, we are offering you a discount of {offer_amount} off your next purchase.',
-			'woo-nod' ),
+			'wc-next-order-discount' ),
 			get_option( 'blogname' )
 		);
 	?></p>
 
 <p><?php printf(
 			__( 'To claim this offer, simply enter the Discount Code {offer_code} during checkout on our website before the discount expires on %s{offer_expiry}%s.',
-			'woo-nod' ),
+			'wc-next-order-discount' ),
 			'<strong>',
 			'</strong>'
 		);
 	?></p>
 
-<p><?php _e( 'Thank you', 'woo-nod' ); ?></p>
+<p><?php _e( 'Thank you', 'wc-next-order-discount' ); ?></p>
 
 <?php do_action( 'woocommerce_email_after_order_table', $order, $sent_to_admin, $plain_text ); ?>
 

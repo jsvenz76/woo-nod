@@ -173,7 +173,7 @@ function nod_get_order_count_by_email( $email )	{
  * @return string $message
  */
 function nod_get_default_offer_email()	{
-	$default_email_body = sprintf( __( 'Hey %s,', 'woo-nod' ), '{name}' ) . "\n\n";
+	$default_email_body = sprintf( __( 'Hey %s,', 'wc-next-order-discount' ), '{name}' ) . "\n\n";
 	
 	$default_email_body .= sprintf( 
 		__( 'To say thanks for your recent purchase at {site_title}, we are offering you a discount of %s off your next purchase.',
@@ -182,14 +182,14 @@ function nod_get_default_offer_email()	{
 		 . "\n\n";
 	
 	$default_email_body .= sprintf(
-		__( 'To claim this offer, simply enter the Discount Code %s%s%s during checkout on our website before the discount expires on %s.', 'woo-nod' ),
+		__( 'To claim this offer, simply enter the Discount Code %s%s%s during checkout on our website before the discount expires on %s.', 'wc-next-order-discount' ),
 		'<strong>',
 		'{offer_code}',
 		'</strong>',
 		'{offer_expiry}'
 	) . "\n\n";
 	
-	$default_email_body .= __( 'Thank you', 'woo-nod' );
+	$default_email_body .= __( 'Thank you', 'wc-next-order-discount' );
 
 	$message = get_option( 'nod_offer_content', false );
 	$message = ! empty( $message ) ? $message : $default_email_body;
@@ -208,7 +208,7 @@ function nod_get_default_offer_email()	{
  * @return	string	$email_body		Body of the email
  */
 function nod_get_email_body_content( $discount_id, $payment_id = 0, $payment_data = array() ) {
-	$default_email_body = sprintf( __( 'Hey %s,', 'woo-nod' ), '{name}' ) . "\n\n";
+	$default_email_body = sprintf( __( 'Hey %s,', 'wc-next-order-discount' ), '{name}' ) . "\n\n";
 	
 	$default_email_body .= sprintf( 
 		__( 'To say thanks for your recent purchase at {site_title}, we are offering you a discount of %s off your next purchase.',
@@ -217,14 +217,14 @@ function nod_get_email_body_content( $discount_id, $payment_id = 0, $payment_dat
 		 . "\n\n";
 	
 	$default_email_body .= sprintf(
-		__( 'To claim this offer, simply enter the Discount Code %s%s%s during checkout on our website before the discount expires on %s.', 'woo-nod' ),
+		__( 'To claim this offer, simply enter the Discount Code %s%s%s during checkout on our website before the discount expires on %s.', 'wc-next-order-discount' ),
 		'<strong>',
 		'{offer_code}',
 		'</strong>',
 		'{offer_expiry}'
 	) . "\n\n";
 	
-	$default_email_body .= __( 'Thank you', 'woo-nod' );
+	$default_email_body .= __( 'Thank you', 'wc-next-order-discount' );
 	
 	return apply_filters( 'nod_offer_email', $email_body, $discount_id, $payment_id, $payment_data );
 } // nod_get_email_body_content
@@ -266,17 +266,17 @@ function nod_get_email_tags()	{
 	$email_tags = array(
 		array(
 			'tag'			=> 'offer_code',
-			'description'	=> __( 'The discount offer code that the customer should use for the offer', 'woo-nod' ),
+			'description'	=> __( 'The discount offer code that the customer should use for the offer', 'wc-next-order-discount' ),
 			'function'		=> 'nod_email_tag_offer_code'
 		),
 		array(
 			'tag'			=> 'offer_amount',
-			'description'	=> __( 'The discount amount that the code provides', 'woo-nod' ),
+			'description'	=> __( 'The discount amount that the code provides', 'wc-next-order-discount' ),
 			'function'		=> 'nod_email_tag_offer_amount'
 		),
 		array(
 			'tag'			=> 'offer_expiry',
-			'description'	=> __( 'The date the discount code expires', 'woo-nod' ),
+			'description'	=> __( 'The date the discount code expires', 'wc-next-order-discount' ),
 			'function'		=> 'nod_email_tag_offer_expiry'
 		)
 	);
