@@ -3,7 +3,7 @@ Contributors: mikeyhoward1977
 Tags: WooCommerce, Coupon Code, Discount Code
 Requires at least: 4.0
 Tested up to: 4.4.2
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,13 @@ Once you have downloaded the plugin zip file, follow these simple instructions t
 == Screenshots ==
 
 == Changelog ==
+= 1.0.1 =
+**Released 12th February, 2016**
+
+* Removed 2 minute email setting as this was for testing
+* Remove PHP E_Strict - testing only
+* Updated text domain to match slug
+
 = 1.0 =
 **Released 11th February, 2016**
 
