@@ -88,23 +88,29 @@ if( !class_exists( 'NOD_Discounts' ) ) :
 			// WC Order object
 			$order = new WC_Order( $order_id );
 			
-			if( !$order )
+			if( ! $order )	{
 				return;
+			}
 			
 			$items = $order->get_items();
 			
 			// If this purchase is not eligible for NOD offers, exit
-			if( !wc_nod_product_is_eligible( $items ) )
+			if( ! wc_nod_product_is_eligible( $items ) )	{
 				return;
+			}
 			
 			// If we do not apply offers to free downloads, check here
-			if( empty( WC_NOD()->settings->free ) && $order->get_total > '0' )
-				return;
+			if( empty( WC_NOD()->settings->free ) )	{
+				if( empty( $order->get_total ) || $order->get_total < '1' )	{
+					return;
+				}
+			}
 			
 			// If there is a minimum spend, check here
 			$min = WC_NOD()->settings->min_spend;
-			if( !empty( $min ) && $min < $order->get_total )
+			if( ! empty( $min ) && $min < $order->get_total )	{
 				return;
+			}
 							
 			// Check if the customer is eligible for a NOD offer.
 			$customer_id = $order->customer_user;
@@ -116,8 +122,9 @@ if( !class_exists( 'NOD_Discounts' ) ) :
 			$purchase_count = 0;
 			$purchase_count = wc_nod_get_customer_purchase_count( $customer_id, $customer_email );
 						
-			if( !wc_nod_purchase_qualifies( $purchase_count ) )
+			if( ! wc_nod_purchase_qualifies( $purchase_count ) )	{
 				return;
+			}
 			
 			// Before adding the new NOD
 			do_action( 'nod_before_register', $order_id, $customer_id );

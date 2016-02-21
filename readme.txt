@@ -3,7 +3,7 @@ Contributors: mikeyhoward1977
 Tags: WooCommerce, Coupon Code, Discount Code
 Requires at least: 4.0
 Tested up to: 4.4.2
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,13 @@ Once you have downloaded the plugin zip file, follow these simple instructions t
 == Screenshots ==
 
 == Changelog ==
+= 1.0.2 =
+**Released 21st February, 2016**
+
+* Tweak: Removed duplicate setting registration
+* Bug Fix: NOD's were only applied to new products or products that had been updated since Next Order Discount was installed
+* Tweak: Updated coding standards in discounts file
+
 = 1.0.1 =
 **Released 12th February, 2016**
 

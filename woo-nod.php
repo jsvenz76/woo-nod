@@ -5,7 +5,7 @@
  * Plugin Name: WooCommerce - Next Order Discount
  * Plugin URI: http://mikesplugins.co.uk
  * Description: Next Order Discount (NOD) is an extension to the WooCommerce WordPress plugin that enables shop owners to attract further purchases from their customers.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Date: 11 February 2016
  * Author: Mike Howard <mike@mikesplugins.co.uk>
  * Author URI: https://profiles.wordpress.org/mikeyhoward1977
@@ -193,7 +193,7 @@ function WC_NOD_Load()	{
 add_action( 'plugins_loaded', 'WC_NOD_Load' );
 
 define( 'WC_NOD_VER_KEY', 'woo_nod_version');
-define( 'WC_NOD_VER', '1.0.1' );
+define( 'WC_NOD_VER', '1.0.2' );
 define( 'WC_NOD_PLUGIN_DIR', untrailingslashit( dirname( __FILE__ ) ) );
 define( 'WC_NOD_PLUGIN_URL', untrailingslashit( plugins_url( '', __FILE__ ) ) );
 

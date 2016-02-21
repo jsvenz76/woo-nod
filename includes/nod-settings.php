@@ -221,7 +221,6 @@ function nod_settings()	{
 	$settings->first    			= get_option( 'nod_first', '1' );
 	$settings->repeat   			= get_option( 'nod_repeat', false );
 	$settings->free					= get_option( 'nod_free', false );
-	$settings->free					= get_option( 'nod_free', false );
 	$settings->min_spend            = get_option( 'nod_min_spend', '0' );
 	$settings->prefix				= get_option( 'nod_prefix', '' );
 	$settings->rate					= get_option( 'nod_rate', '20' );

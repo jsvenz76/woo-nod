@@ -404,8 +404,9 @@ function wc_nod_product_is_eligible( $items )	{
 	foreach( $items as $item )	{
 		$exclude = get_post_meta( $item['product_id'], '_wc_exclude_from_nod', true );
 		
-		if( $exclude == 'no' )
+		if( empty( $exclude ) || $exclude == 'no' )	{
 			return true;
+		}
 	}
 	
 	return false;
