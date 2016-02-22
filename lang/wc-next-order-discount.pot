@@ -1,0 +1,344 @@
+# Copyright (C) 2016 WooCommerce - Next Order Discount
+# This file is distributed under the same license as the WooCommerce - Next Order Discount package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce - Next Order Discount 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wc-next-order-"
+"discount\n"
+"POT-Creation-Date: 2016-02-11 22:12:37+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: email_templates/customer-nod-offer.php:20
+#: email_templates/plain/customer-nod-offer.php:17
+msgid ""
+"Hi there. To say thanks for your recent purchase at {site_title}, we are "
+"offering you a discount of {offer_amount} off your next purchase."
+msgstr ""
+
+#: email_templates/customer-nod-offer.php:27
+#: email_templates/plain/customer-nod-offer.php:23
+msgid ""
+"To claim this offer, simply enter the Discount Code {offer_code} during "
+"checkout on our website before the discount expires on %s{offer_expiry}%s."
+msgstr ""
+
+#: email_templates/customer-nod-offer.php:34
+#: email_templates/plain/customer-nod-offer.php:29
+#: includes/nod-functions.php:192 includes/nod-functions.php:227
+msgid "Thank you"
+msgstr ""
+
+#: emails/nod-email.php:41 includes/nod-settings.php:25
+msgid "Next Order Discount"
+msgstr ""
+
+#: emails/nod-email.php:45
+msgid ""
+"Next Order Discount emails are sent following a customer order in accordance "
+"with your %sNOD Settings%s."
+msgstr ""
+
+#: emails/nod-email.php:207
+msgid "Offer Email Subject"
+msgstr ""
+
+#: emails/nod-email.php:208
+msgid "Enter the subject line for the NOD email."
+msgstr ""
+
+#: emails/nod-email.php:215
+msgid "Offer Email Heading"
+msgstr ""
+
+#: emails/nod-email.php:216
+msgid "Enter the heading for the NOD email."
+msgstr ""
+
+#: emails/nod-email.php:223
+msgid "Email type"
+msgstr ""
+
+#: emails/nod-email.php:225
+msgid "Choose which format of email to send."
+msgstr ""
+
+#: emails/nod-email.php:229
+msgid "Plain text"
+msgstr ""
+
+#: emails/nod-email.php:230
+msgid "HTML"
+msgstr ""
+
+#: emails/nod-email.php:231
+msgid "Multipart"
+msgstr ""
+
+#: emails/nod-email.php:236
+msgid "NOD Notification Emails"
+msgstr ""
+
+#: emails/nod-email.php:237
+msgid ""
+"Enter the email address(es) that should receive a notification anytime a NOD "
+"offer is made, one per line."
+msgstr ""
+
+#: emails/nod-email.php:244
+msgid "Disable Admin Notifications"
+msgstr ""
+
+#: emails/nod-email.php:245
+msgid ""
+"Check this box if you do not want NOD offers to be blind copied to admins. "
+"Will overide NOD Notification Emails."
+msgstr ""
+
+#: includes/metabox.php:34
+msgid "Exclude NOD offers?"
+msgstr ""
+
+#: includes/metabox.php:35
+msgid "Exclude this Product from NOD offers?"
+msgstr ""
+
+#: includes/nod-functions.php:176 includes/nod-functions.php:211
+msgid "Hey %s,"
+msgstr ""
+
+#: includes/nod-functions.php:179 includes/nod-functions.php:214
+msgid ""
+"To say thanks for your recent purchase at {site_title}, we are offering you "
+"a discount of %s off your next purchase."
+msgstr ""
+
+#: includes/nod-functions.php:185 includes/nod-functions.php:220
+msgid ""
+"To claim this offer, simply enter the Discount Code %s%s%s during checkout "
+"on our website before the discount expires on %s."
+msgstr ""
+
+#: includes/nod-functions.php:269
+msgid "The discount offer code that the customer should use for the offer"
+msgstr ""
+
+#: includes/nod-functions.php:274
+msgid "The discount amount that the code provides"
+msgstr ""
+
+#: includes/nod-functions.php:279
+msgid "The date the discount code expires"
+msgstr ""
+
+#: includes/nod-settings.php:66
+msgid "NOD General Settings"
+msgstr ""
+
+#: includes/nod-settings.php:67
+msgid "NOD Email Settings"
+msgstr ""
+
+#: includes/nod-settings.php:86
+msgid "General NOD Settings"
+msgstr ""
+
+#: includes/nod-settings.php:92
+msgid "Enable Next Order Discount?"
+msgstr ""
+
+#: includes/nod-settings.php:94
+msgid "Check this box to enable the Next Order Discount feature."
+msgstr ""
+
+#: includes/nod-settings.php:99
+msgid "First NOD after"
+msgstr ""
+
+#: includes/nod-settings.php:100
+msgid ""
+"Enter the number of orders a customer must complete before qualifying for "
+"their first NOD."
+msgstr ""
+
+#: includes/nod-settings.php:107
+msgid "Continue with NOD offers?"
+msgstr ""
+
+#: includes/nod-settings.php:109
+msgid ""
+"Check this box to send NOD offers after customer completes every %sRepeat "
+"NOD offer after every%s orders."
+msgstr ""
+
+#: includes/nod-settings.php:118
+msgid "Repeat NOD offer after every"
+msgstr ""
+
+#: includes/nod-settings.php:119
+msgid ""
+"Enter the number of orders the customer needs to complete to qualify for "
+"their second NOD. Enter 0 to deactivate."
+msgstr ""
+
+#: includes/nod-settings.php:126
+msgid "Apply to Free Purchases?"
+msgstr ""
+
+#: includes/nod-settings.php:127
+msgid ""
+"Check this box to enable the Next Order Discount following free purchases."
+msgstr ""
+
+#: includes/nod-settings.php:132
+msgid "Minimum Spend"
+msgstr ""
+
+#: includes/nod-settings.php:133
+msgid ""
+"Enter the minimum spend required for Next Order Discount (i.e. 10), or leave "
+"empty."
+msgstr ""
+
+#: includes/nod-settings.php:140
+msgid "Discount Code Prefix"
+msgstr ""
+
+#: includes/nod-settings.php:141
+msgid "Enter a prefix for the discount code, or leave empty."
+msgstr ""
+
+#: includes/nod-settings.php:147
+msgid "Discount Amount"
+msgstr ""
+
+#: includes/nod-settings.php:148
+msgid "Enter the discount amount."
+msgstr ""
+
+#: includes/nod-settings.php:155
+msgid "Discount Type"
+msgstr ""
+
+#: includes/nod-settings.php:156
+msgid "The kind of discount to apply for Next Order Discounts."
+msgstr ""
+
+#: includes/nod-settings.php:160
+msgid "Cart Discount"
+msgstr ""
+
+#: includes/nod-settings.php:161
+msgid "Cart % Discount"
+msgstr ""
+
+#: includes/nod-settings.php:167
+msgid "Send Offer After"
+msgstr ""
+
+#: includes/nod-settings.php:168
+msgid "Select length of time after purchase to wait before sending the offer."
+msgstr ""
+
+#: includes/nod-settings.php:172
+msgid "2 Minutes"
+msgstr ""
+
+#: includes/nod-settings.php:173
+msgid "12 Hours"
+msgstr ""
+
+#: includes/nod-settings.php:174 includes/nod-settings.php:192
+msgid "1 Day"
+msgstr ""
+
+#: includes/nod-settings.php:175
+msgid "36 Hours"
+msgstr ""
+
+#: includes/nod-settings.php:176 includes/nod-settings.php:193
+msgid "2 Days"
+msgstr ""
+
+#: includes/nod-settings.php:177 includes/nod-settings.php:194
+msgid "3 Days"
+msgstr ""
+
+#: includes/nod-settings.php:178 includes/nod-settings.php:195
+msgid "4 Days"
+msgstr ""
+
+#: includes/nod-settings.php:179 includes/nod-settings.php:196
+msgid "5 Days"
+msgstr ""
+
+#: includes/nod-settings.php:180 includes/nod-settings.php:197
+msgid "6 Days"
+msgstr ""
+
+#: includes/nod-settings.php:181 includes/nod-settings.php:198
+msgid "1 Week"
+msgstr ""
+
+#: includes/nod-settings.php:187
+msgid "Offer Expires after"
+msgstr ""
+
+#: includes/nod-settings.php:188
+msgid "Select time period offer is valid for."
+msgstr ""
+
+#: includes/nod-settings.php:199
+msgid "10 Days"
+msgstr ""
+
+#: includes/nod-settings.php:200
+msgid "2 Weeks"
+msgstr ""
+
+#: includes/nod-settings.php:201
+msgid "1 Month"
+msgstr ""
+
+#: includes/nod-settings.php:233
+msgid "Discount Offer from %s"
+msgstr ""
+
+#: includes/nod-settings.php:236
+msgid "%s Discount on Your Next Purchase - Act Now!"
+msgstr ""
+
+#: woo-nod.php:135
+msgid "Cheatin&#8217; huh?"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WooCommerce - Next Order Discount"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://mikesplugins.co.uk"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Next Order Discount (NOD) is an extension to the WooCommerce WordPress "
+"plugin that enables shop owners to attract further purchases from their "
+"customers."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Mike Howard <mike@mikesplugins.co.uk>"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://profiles.wordpress.org/mikeyhoward1977"
+msgstr ""
+
+#. Tags of the plugin/theme
+msgid "WooCommerce, Discount, Coupon, Discount Code, Coupon Code"
+msgstr ""

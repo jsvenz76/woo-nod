@@ -169,6 +169,7 @@ function nod_registered_settings()	{
 				'type' 		=> 'select',
 				'class'		=> 'wc-enhanced-select',
 				'options'	=> array(
+					'5 minutes'	=> __( '5 Minutes (For Testing)', 'wc-next-order-discount' ),
 					'12 hours'	=> __( '12 Hours', 'wc-next-order-discount' ),
 					'1 day'		=> __( '1 Day', 'wc-next-order-discount' ),
 					'36 hours'	=> __( '36 Hours', 'wc-next-order-discount' ),
