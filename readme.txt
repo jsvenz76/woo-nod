@@ -3,7 +3,7 @@ Contributors: mikeyhoward1977
 Tags: WooCommerce, Coupon Code, Discount Code
 Requires at least: 4.0
 Tested up to: 4.4.2
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,11 @@ Once you have downloaded the plugin zip file, follow these simple instructions t
 == Screenshots ==
 
 == Changelog ==
+= 1.0.3 =
+**Released 22nd February, 2016**
+
+* Added 5 minute option to send NOD after which can be used for testing
+
 = 1.0.2 =
 **Released 21st February, 2016**
 
